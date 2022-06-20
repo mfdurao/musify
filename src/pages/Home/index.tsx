@@ -6,7 +6,6 @@ const Home = () => {
   const space = " ";
   const test = "testa alo test AAAAA AAAAAAAAAAAA";
   const a = test.split(space);
-  console.log(a)
   return (
     <div>
       <div>

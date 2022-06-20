@@ -1,5 +1,8 @@
-import React from "react";
+import { message } from "antd";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Text, Input } from "../../components";
+import { useAuth } from "../../contexts/AuthProvider/useAuth";
 
 import {
   LoginContainer,
@@ -12,12 +15,29 @@ import {
   TextContainer,
 } from "./style";
 
-
-const guitar = require("../../assets/img/guitar.png")
-
+const guitar = require("../../assets/img/guitar.png");
 
 const Login = () => {
-  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [values, setValues] = useState({ email: "", password: "" });
+  const auth = useAuth();
+
+  useEffect(() => {
+    setValues({ email, password });
+  }, [email, password]);
+    
+  const navigate = useNavigate();
+
+  const onFinish = async (values: { email: string; password: string }) => {
+    try {
+      await auth.authenticate(values.email, values.password);
+      navigate("/home");
+    } catch (err) {
+      message.error("Invalid email or password");
+    }
+  };
+
   return (
     <LoginContainer>
       <TextContainer>
@@ -54,7 +74,12 @@ const Login = () => {
         </TextBox>
       </TextContainer>
       <LoginFormContainer>
-        <LoginForm>
+        <LoginForm
+          onSubmit={(e) => {
+            e.preventDefault();
+            onFinish(values);
+          }}
+        >
           <Text
             color="rgba(0, 255, 100, 0.8)"
             size="40px"
@@ -71,7 +96,13 @@ const Login = () => {
             position="start"
             content="email:"
           />
-          <Input type="email" placeholder="Your email here..." />
+          <Input
+            type="email"
+            placeholder="Your email here..."
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
           <Text
             color="#c5c5c5"
             size="24px"
@@ -80,8 +111,15 @@ const Login = () => {
             position="start"
             content="password:"
           />
-          <Input type="password" placeholder="Your password here..." />
-          <Button type="submit" content="Sign in" redirect={"/home"}/>
+          <Input
+            type="password"
+            placeholder="Your password here..."
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            autocomplete="on"
+          />
+          <Button type="submit" content="Sign in" />
         </LoginForm>
       </LoginFormContainer>
     </LoginContainer>
