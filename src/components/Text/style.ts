@@ -7,4 +7,6 @@ export const TextStyle = styled.p<Props>`
   font-weight: ${props => props.weight};
   margin: ${props => props.margin};
   text-align:${props => props.position};
+
+  transition: all 0.4s ease-out;
 `;
