@@ -17,25 +17,25 @@ const Header = () => {
           <Logo src={guitar} alt="Musify Logo" />
           <Text
             color="#000"
-            size="22px"
+            size="20px"
             weight="500"
             margin="10px"
             position="start"
-            content="Musify"
+            content="musify"
           />
         </LogoBox>
         <NavItems>
-          <NavItem to={"#"}>
+          <NavItem to={"/shop"}>
             Shop
           </NavItem>
-          <NavItem to={"#"}>
+          <NavItem to={"/profile"}>
             Profile
           </NavItem>
-          <NavItem to={"#"}>
-            Playlists
+          <NavItem to={"/playlists"}>
+            Your playlists
           </NavItem>
           <NavItem to={"#"}>
-            Post your song
+            Post or edit your song
           </NavItem>
         </NavItems>
       </HeaderContainer>

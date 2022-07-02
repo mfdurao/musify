@@ -16,7 +16,7 @@ export const HeaderContainer = styled.div`
 export const Logo = styled.img`
   transition: all 0.4s;
   margin-top: -10px;
-  top:47px;
+  top: 47px;
   transform: rotate(-45deg);
   height: 45px;
   position: fixed;
@@ -41,12 +41,12 @@ export const LogoBox = styled(Link)`
   animation-duration: 0.4s;
 
   transition: all 0.4s;
-  p{
+  p {
     opacity: 0;
   }
 
   &:hover {
-    p{
+    p {
       opacity: 1;
       margin-top: -25px;
     }
@@ -55,13 +55,13 @@ export const LogoBox = styled(Link)`
       top: 65px;
     }
   }
-
 `;
 
 export const NavItems = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
   align-items: center;
 `;
 
@@ -69,7 +69,7 @@ export const NavItem = styled(Link)`
   color: #fff;
   display: flex;
   position: relative;
-  width: 50%;
+  width: 60%;
   justify-content: center;
   padding: 30px 0 20px;
 

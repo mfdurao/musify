@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 export const LyricsContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  padding: 60px 30px;
+  flex-direction: column;
   justify-content: flex-start;
   align-content: flex-start;
-  flex-wrap: wrap;
-  width: 500px;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   gap: 10px;
-
   overflow-y: scroll;
 `;
 
@@ -22,18 +21,3 @@ export const LyricsItem = styled.div`
   gap: 5px;
 `;
 
-export const ChordContainer = styled.div`
-  background-color: white;
-  height: 20px;
-  max-width: fit-content;
-`;
-
-export const Chord = styled.input`
-  height: 100%;
-  width: 100%;
-  border: none;
-
-  :focus{
-    outline: none;
-  }
-`;

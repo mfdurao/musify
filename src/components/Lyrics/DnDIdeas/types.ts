@@ -1,0 +1,1 @@
+export type ChordMap = {[id:string]: string[]};
